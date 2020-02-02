@@ -5,7 +5,7 @@ import java.util.List;
 
 public class LambdaUtils {
 
-	/**根据过滤器，返回过滤结果*/
+	/**根据过滤器规则，返回过滤后的结果*/
 	public static <T> List<T> filter(List<T> list, FilterProcess<T> processer){
 		List<T> newList = new ArrayList<>();
 		

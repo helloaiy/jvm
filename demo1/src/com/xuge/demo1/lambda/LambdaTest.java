@@ -14,7 +14,7 @@ import org.junit.Test;
  */
 public class LambdaTest {
 
-	/**常规方法*/
+	/**常规方法：通过for循环，过滤出符合条件的数据*/
 	@Test
 	public void test1() {
 		System.out.println("测试方法1 --------------------------------");
@@ -32,7 +32,11 @@ public class LambdaTest {
 		newList.stream().forEach(System.out::println);
 	}
 	
-	/**匿名内部类的方法*/
+	/**匿名内部类的方法：
+	 *  1.创建过滤器处理接口： FilterProcess
+	 *  2.创建一个过滤的公共方法，LambdaUtils.filter
+	 *  3.调用该公共方法，并使用内部类的方式，实现过滤规则
+	 **/
 	@Test
 	public void test2() {
 		System.out.println("测试方法2 --------------------------------");
@@ -47,7 +51,9 @@ public class LambdaTest {
 	}
 	
 	
-	/** lambda语法 1 */
+	/** lambda语法 1 （半lambda支持）
+	 *   原来调用公共的过滤方法中，把内部类的写法 替换为 lambda语法
+	  */
 	@Test
 	public void test3() {
 		System.out.println("测试方法3 --------------------------------");
@@ -60,7 +66,9 @@ public class LambdaTest {
 	}
 	
 	
-	/** 终极 lambda语法 2 */
+	/** lambda语法 2 （完全的lambda实现）
+	 *   抛弃原来公共的过滤方法，完全使用 Stream API，和 lambda语法实现过滤
+	 *  */
 	@Test
 	public void test4() {
 		System.out.println("测试方法4 --------------------------------");
