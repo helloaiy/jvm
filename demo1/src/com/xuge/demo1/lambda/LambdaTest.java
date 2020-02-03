@@ -9,6 +9,7 @@ import org.junit.Test;
 
 /**
  * 
+ * 使用 lambda表达式 实现函数式编程
  * @author zx
  *
  */
@@ -76,8 +77,29 @@ public class LambdaTest {
 		List<String> nameList = Arrays.asList("张三","李四","王五","钱五");
 		
 		Stream<String> newStream = nameList.stream().filter(e -> e.indexOf("五") != -1);
-		
 		newStream.forEach(System.out::println);
 	}
 	
+	/**
+	 * lambda语法 3 
+	 */
+	@Test
+	public void test5() {
+		System.out.println("测试方法5 --------------------------------");
+	
+		List<String> nameList = Arrays.asList("张三","李四","王五","钱五");
+		
+		FilterProcess<String> filter1 = (x) -> x.indexOf("五") != -1;
+		FilterProcess<String> filter2 = (x) -> x.indexOf("四") != -1;
+		
+		List<String> newList = LambdaUtils.filter(nameList, filter1);
+		
+		List<String> newList2 = LambdaUtils.filter(nameList, filter2);
+		
+		System.out.println("筛选出‘五’的名字：");
+		newList.stream().forEach(System.out::println);
+		
+		System.out.println("筛选出‘四’的名字：");
+		newList2.stream().forEach(System.out::println);
+	}
 }
